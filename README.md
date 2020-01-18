@@ -1,16 +1,16 @@
 # clean_architecture
 
-A new Flutter project.
+## Source
 
-## Getting Started
+### Clean Architecture
 
-This project is a starting point for a Flutter application.
+[article](https://medium.com/flutter-community/clean-architecture-with-states-rebuilder-has-never-been-cleaner-6c9b91c3b9b6?source=rss----86fb29d7cc6a---4)
 
-A few resources to get you started if this is your first Flutter project:
+[repo](https://github.com/GIfatahTH/states-rebuilder-examples/tree/master/007-clean_architecture_dane_mackier_app)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Provider Implementation Guide
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Tutorial](https://www.filledstacks.com/post/flutter-architecture-my-provider-implementation-guide/)
+
+[repo](https://github.com/FilledStacks/flutter-tutorials/tree/master/010-provider-architecture/002-final/lib)
+
