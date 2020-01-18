@@ -14,3 +14,6 @@
 
 [repo](https://github.com/FilledStacks/flutter-tutorials/tree/master/010-provider-architecture/002-final/lib)
 
+## Ressources
+
+[Article on provider](https://medium.com/flutter-community/making-sense-all-of-those-flutter-providers-e842e18f45dd)
