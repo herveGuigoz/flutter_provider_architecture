@@ -1,7 +1,6 @@
 import 'package:clean_architecture/infrastructure/locator.dart';
+import 'package:clean_architecture/ui/router.dart';
 import 'package:flutter/material.dart';
-
-import './ui/pages/counter_page.dart';
 
 void main() {
   setupLocator();
@@ -9,15 +8,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: CounterPage(),
+      theme: ThemeData(),
+      initialRoute: 'login',
+      onGenerateRoute: Router.generateRoute,
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../base_view.dart';
-import '../../service/counter_service.dart';
+import '../../base_view.dart';
+import '../../../service/counter_service.dart';
 
 class CounterPage extends StatelessWidget {
   @override

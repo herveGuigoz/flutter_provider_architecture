@@ -1,42 +1,43 @@
-import '../domain/entities/user.dart';
-import 'common/input_parser.dart';
-import 'interfaces/i_api.dart';
+import 'package:clean_architecture/service/abstract/base_service.dart';
+
+// TODO: Use this service in main file as fisrt consumer.
+// Ennum for state should be fine, for exemple purpose i let class style states.
+
+// ----------------------------------------------------------------------------
+// AuthenticationService states
+// ----------------------------------------------------------------------------
+abstract class AuthenticationServiceState {}
+
+class AuthenticationUninitialized extends AuthenticationServiceState {}
+
+class AuthenticationAuthenticated extends AuthenticationServiceState {}
+
+class AuthenticationUnauthenticated extends AuthenticationServiceState {}
+
+class AuthenticationLoading extends AuthenticationServiceState {
+  @override
+  String toString() => 'coucou';
+}
+
+// ----------------------------------------------------------------------------
+// AuthenticationService class
+// ----------------------------------------------------------------------------
 
 /// AuthenticationService is responsible for fetching for user form input id
 /// and caching the obtained user in memory (the getter user).
-class AuthenticationService {
-  AuthenticationService({IApi api}) : _api = api;
-  IApi _api;
-  User _fetchedUser;
-  User get user => _fetchedUser;
+class AuthenticationService extends BaseService<AuthenticationServiceState> {
+  // AuthenticationService({IApi api}) : _api = api;
+  AuthenticationService();
 
-  void login(String userIdText) async {
-    //Delegate the input parsing and validation
-    var userId = InputParser.parse(userIdText);
+  String _token;
 
-    _fetchedUser = await _api.getUserProfile(userId);
+  String get token => _token;
 
-    // // TODO1 : throw unhandled exception
-    // throw Exception();
+  @override
+  get initialState => AuthenticationUninitialized();
 
-    //TODO2: Instantiate a value object in a bad state.
-    // Comment(
-    //   id: 1,
-    //   email: Email('email.com'), //Bad email
-    //   name: 'Joe',
-    //   body: 'comment',
-    //   postId: 2,
-    // );
-
-    //TODO3: try to persist an entity is bad state.
-    //   Comment(
-    //     id: 1,
-    //     email: Email('email@m.com'), //Bad email
-    //     name: 'Joe',
-    //     body: 'comment',
-    //     postId: 2,
-    //   )
-    //     ..postId = null
-    //     ..toJson();
+  void logIn(String token) {
+    _token = token;
+    setState(AuthenticationAuthenticated());
   }
 }
