@@ -1,6 +1,6 @@
-service for it holds the application service layer. 
+The application service layer is the client of the domain layer. 
 
-The application service layer is the client of the domain layer. It hides (or in technical terms “abstracts”) the details of the domain and exposes a programming interface (API) to represent the business use cases and behavior of the application. 
+It hides (or in technical terms “abstracts”) the details of the domain and exposes a programming interface (API) to represent the business use cases and behavior of the application. 
 
 it is all about coordination and orchestration through delegation to domain and external services. 
 

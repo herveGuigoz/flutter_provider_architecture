@@ -1,5 +1,5 @@
 import 'package:clean_architecture/infrastructure/locator.dart';
-import 'package:clean_architecture/service/abstract/base_service.dart';
+import 'package:clean_architecture/service/common/base_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

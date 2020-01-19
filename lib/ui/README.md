@@ -18,7 +18,7 @@ For example, this folder may contain your best-designed FAB, your super attracti
 
 By the time you constitute your custom widget library and you know where to find them if you need them in other apps.
 
-Even if you are using widgets from external libraries, it is more convenient to adapt their interface and create your own and use yours throughout the user interface (this is a practical case of the adapter model). 
+Even if you are using widgets from external libraries, it is more convenient to adapt their interface and create your own and use yours throughout the user interface. 
 
 Your advantage is to dissociate your user interface from the concrete implementation of external libraries, and in the future, if you change your mind and decide to use another library, you will change one place: here inside the widgets folder.
 

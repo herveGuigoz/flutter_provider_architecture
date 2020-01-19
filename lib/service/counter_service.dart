@@ -1,4 +1,4 @@
-import './abstract/base_service.dart';
+import './common/base_service.dart';
 
 class CounterService extends BaseService<int> {
   @override

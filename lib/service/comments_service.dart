@@ -1,5 +1,5 @@
 import 'package:clean_architecture/data_source/api.dart';
-import 'package:clean_architecture/service/abstract/base_service.dart';
+import 'package:clean_architecture/service/common/base_service.dart';
 
 import '../domain/entities/comment.dart';
 import 'interfaces/i_api.dart';

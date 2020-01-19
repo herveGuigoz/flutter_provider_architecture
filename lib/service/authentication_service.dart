@@ -1,4 +1,4 @@
-import 'package:clean_architecture/service/abstract/base_service.dart';
+import 'package:clean_architecture/service/common/base_service.dart';
 
 // TODO: Use this service in main file as fisrt consumer.
 // Ennum for state should be fine, for exemple purpose i let class style states.

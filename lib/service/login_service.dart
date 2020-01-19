@@ -1,4 +1,4 @@
-import '../service/abstract/base_service.dart';
+import '../service/common/base_service.dart';
 import '../domain/entities/user.dart';
 import 'common/input_parser.dart';
 import 'interfaces/i_api.dart';
