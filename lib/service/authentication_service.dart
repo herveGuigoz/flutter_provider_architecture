@@ -23,8 +23,6 @@ class AuthenticationLoading extends AuthenticationServiceState {
 // AuthenticationService class
 // ----------------------------------------------------------------------------
 
-/// AuthenticationService is responsible for fetching for user form input id
-/// and caching the obtained user in memory (the getter user).
 class AuthenticationService extends BaseService<AuthenticationServiceState> {
   // AuthenticationService({IApi api}) : _api = api;
   AuthenticationService();
