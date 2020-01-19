@@ -1,10 +1,10 @@
-import 'package:clean_architecture/domain/entities/post.dart';
-import 'package:clean_architecture/ui/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 
+import 'pages/home_page/home_page.dart';
 import 'pages/login_page/login_page.dart';
 import 'pages/counter_page/counter_page.dart';
 import 'pages/post_page/post_page.dart';
+import '../domain/entities/post.dart';
 
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {

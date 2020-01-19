@@ -1,7 +1,8 @@
-import 'package:clean_architecture/infrastructure/locator.dart';
-import 'package:clean_architecture/service/common/base_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../service/common/base_service.dart';
+import '../service/common/locator.dart';
 
 class BaseView<T extends BaseService> extends StatefulWidget {
   final Widget Function(BuildContext context, T service, Widget child) builder;

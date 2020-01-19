@@ -1,11 +1,14 @@
-import 'package:clean_architecture/infrastructure/locator.dart';
-import 'package:clean_architecture/service/login_service.dart';
 import 'package:flutter/material.dart';
 
+import '../../../service/common/locator.dart';
+import '../../../service/login_service.dart';
+
 import '../../../domain/entities/post.dart';
+
 import '../../common/app_colors.dart';
 import '../../common/text_styles.dart';
 import '../../common/ui_helpers.dart';
+
 import 'comments.dart';
 import 'like_button.dart';
 

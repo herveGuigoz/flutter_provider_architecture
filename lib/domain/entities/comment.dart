@@ -1,5 +1,5 @@
-import 'package:clean_architecture/domain/exceptions/validation_exception.dart';
-import 'package:clean_architecture/domain/value_objects/email.dart';
+import '../exceptions/validation_exception.dart';
+import '../value_objects/email.dart';
 
 class Comment {
   int id;

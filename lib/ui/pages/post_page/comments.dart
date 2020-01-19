@@ -1,8 +1,8 @@
-import 'package:clean_architecture/ui/base_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../domain/entities/comment.dart';
 import '../../../service/comments_service.dart';
+import '../../base_view.dart';
 import '../../exceptions/error_handler.dart';
 import '../../common/app_colors.dart';
 import '../../common/ui_helpers.dart';

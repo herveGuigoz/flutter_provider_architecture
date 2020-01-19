@@ -1,13 +1,19 @@
-import 'package:clean_architecture/infrastructure/locator.dart';
-import 'package:clean_architecture/service/login_service.dart';
-import 'package:clean_architecture/ui/base_view.dart';
 import 'package:flutter/material.dart';
-import '../../../domain/entities/post.dart';
+
+import '../../base_view.dart';
+
+import '../../../service/common/locator.dart';
+import '../../../service/login_service.dart';
 import '../../../service/posts_service.dart';
+
+import '../../../domain/entities/post.dart';
+
 import '../../exceptions/error_handler.dart';
+
 import '../../common/app_colors.dart';
 import '../../common/text_styles.dart';
 import '../../common/ui_helpers.dart';
+
 import 'postlist_item.dart';
 
 class HomePage extends StatelessWidget {

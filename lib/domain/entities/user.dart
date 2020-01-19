@@ -1,4 +1,4 @@
-import 'package:clean_architecture/domain/exceptions/validation_exception.dart';
+import '../exceptions/validation_exception.dart';
 
 class User {
   int id;

@@ -1,7 +1,7 @@
-import 'package:clean_architecture/ui/base_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../service/posts_service.dart';
+import '../../base_view.dart';
 
 class LikeButton extends StatelessWidget {
   LikeButton({

@@ -1,6 +1,7 @@
-import 'package:clean_architecture/infrastructure/locator.dart';
-import 'package:clean_architecture/ui/router.dart';
 import 'package:flutter/material.dart';
+
+import './service/common/locator.dart';
+import './ui/router.dart';
 
 void main() {
   setupLocator();
