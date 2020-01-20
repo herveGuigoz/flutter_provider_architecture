@@ -1,5 +1,6 @@
 import 'package:clean_architecture/ui/base_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../service/login_service.dart';
 import '../../exceptions/error_handler.dart';
@@ -21,8 +22,10 @@ class _LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _service = Provider.of<LoginService>(context, listen: false);
     return BaseView<LoginService>(
       // Disposing TextEditingController to free resources.
+      service: _service,
       dispose: () => controller.dispose(),
       builder: (context, service, child) {
         return Column(

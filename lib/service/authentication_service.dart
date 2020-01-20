@@ -38,4 +38,10 @@ class AuthenticationService extends BaseService<AuthenticationServiceState> {
     _token = token;
     setState(AuthenticationAuthenticated());
   }
+
+  @override
+  void dispose() {
+    print('AuthenticationService disposed');
+    super.dispose();
+  }
 }

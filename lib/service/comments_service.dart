@@ -35,4 +35,10 @@ class CommentsService extends BaseService<CommentsServiceState> {
       setState(CommentsServiceState.FAILURE);
     }
   }
+
+  @override
+  void dispose() {
+    print('CounterService disposed');
+    super.dispose();
+  }
 }

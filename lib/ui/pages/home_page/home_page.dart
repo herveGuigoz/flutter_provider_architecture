@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../base_view.dart';
 
@@ -27,12 +28,13 @@ class HomePage extends StatelessWidget {
 }
 
 class _HomePageBody extends StatelessWidget {
-  final user = locator<LoginService>().user;
-
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<LoginService>(context, listen: false).user;
+    final _service = Provider.of<PostsService>(context, listen: false);
     return BaseView<PostsService>(
-      onServiceReady: (service) => service.getPostsForUser(user.id),
+      service: _service,
+      onServiceReady: (service) => _service.getPostsForUser(user.id),
       builder: (context, service, child) {
         if (service.state == PostsServiceState.INITIAL) {
           return Center(child: CircularProgressIndicator());
@@ -51,6 +53,12 @@ class _HomePageBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             UIHelper.verticalSpaceLarge(),
+            RaisedButton(
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, 'counter');
+              },
+              child: const Text('Counter Page', style: TextStyle(fontSize: 20)),
+            ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: Text(

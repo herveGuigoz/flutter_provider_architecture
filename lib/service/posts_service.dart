@@ -46,4 +46,10 @@ class PostsService extends BaseService<PostsServiceState> {
     _posts.firstWhere((post) => post.id == postId).incrementLikes();
     notifyListeners();
   }
+
+  @override
+  void dispose() {
+    print('PostsService disposed');
+    super.dispose();
+  }
 }

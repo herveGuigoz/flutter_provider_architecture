@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../service/posts_service.dart';
 import '../../base_view.dart';
@@ -11,21 +12,24 @@ class LikeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<PostsService>(builder: (context, service, child) {
-      return Row(
-        children: <Widget>[
-          Text('${service.getPostLikes(postId)}'),
-          MaterialButton(
-            color: Colors.white,
-            child: Icon(Icons.thumb_up),
-            onPressed: () {
-              //NOTE3: incrementLikes is a synchronous method so we do not expect errors
-              service.incrementLikes(postId);
-            },
-          )
-        ],
-      );
-    });
+    final _service = Provider.of<PostsService>(context, listen: false);
+    return BaseView<PostsService>(
+        service: _service,
+        builder: (context, service, child) {
+          return Row(
+            children: <Widget>[
+              Text('${service.getPostLikes(postId)}'),
+              MaterialButton(
+                color: Colors.white,
+                child: Icon(Icons.thumb_up),
+                onPressed: () {
+                  //NOTE3: incrementLikes is a synchronous method so we do not expect errors
+                  service.incrementLikes(postId);
+                },
+              )
+            ],
+          );
+        });
   }
 }
 /*

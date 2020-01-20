@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../base_view.dart';
 import '../../../service/counter_service.dart';
@@ -6,7 +7,19 @@ import '../../../service/counter_service.dart';
 class CounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => CounterService(),
+      child: _CounterPageBody(),
+    );
+  }
+}
+
+class _CounterPageBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final _service = Provider.of<CounterService>(context, listen: false);
     return BaseView<CounterService>(
+      service: _service,
       builder: (context, service, child) => Scaffold(
         body: Center(
           child: Column(
