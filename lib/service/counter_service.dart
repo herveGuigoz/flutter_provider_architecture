@@ -9,4 +9,10 @@ class CounterService extends BaseService<int> {
     counter++;
     setState(counter);
   }
+
+  @override
+  void dispose() {
+    print('CounterService disposed');
+    super.dispose();
+  }
 }

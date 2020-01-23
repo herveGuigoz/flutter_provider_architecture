@@ -46,4 +46,10 @@ class LoginService extends BaseService<LoginServiceState> {
       return false;
     }
   }
+
+  @override
+  void dispose() {
+    print('LoginService disposed');
+    super.dispose();
+  }
 }

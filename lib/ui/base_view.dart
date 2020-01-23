@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../service/common/base_service.dart';
-import '../service/common/locator.dart';
 
 class BaseView<T extends BaseService> extends StatefulWidget {
   final Widget Function(BuildContext context, T service, Widget child) builder;
@@ -24,16 +23,15 @@ class BaseView<T extends BaseService> extends StatefulWidget {
 }
 
 class _BaseViewState<T extends BaseService> extends State<BaseView<T>> {
-  // Either our factory or singleton is created here.
-  T service = locator<T>();
+  ChangeNotifier _service;
 
   @override
   void initState() {
+    _service = Provider.of<T>(context, listen: false);
     if (widget.onServiceReady != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        widget.onServiceReady(service);
+        widget.onServiceReady(_service);
       });
-      // widget.onServiceReady(service);
     }
     super.initState();
   }
@@ -58,11 +56,8 @@ class _BaseViewState<T extends BaseService> extends State<BaseView<T>> {
   Widget build(BuildContext context) {
     if (widget.onAfterBuild != null) {
       WidgetsBinding.instance
-          .addPostFrameCallback((_) => widget.onAfterBuild(context, service));
+          .addPostFrameCallback((_) => widget.onAfterBuild(context, _service));
     }
-    return ChangeNotifierProvider.value(
-      value: service,
-      child: Consumer<T>(builder: widget.builder),
-    );
+    return Consumer<T>(builder: widget.builder);
   }
 }

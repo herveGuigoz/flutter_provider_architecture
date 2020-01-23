@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../../service/common/locator.dart';
 import '../../../service/login_service.dart';
 
 import '../../../domain/entities/post.dart';
@@ -15,11 +15,11 @@ import 'like_button.dart';
 class PostPage extends StatelessWidget {
   PostPage({this.post});
   final Post post;
-  //NOTE1: Get the logged user
-  final user = locator<LoginService>().user;
 
   @override
   Widget build(BuildContext context) {
+    // Get the logged user
+    final user = Provider.of<LoginService>(context, listen: false).user;
     return Scaffold(
       backgroundColor: backgroundColor,
       appBar: AppBar(),
