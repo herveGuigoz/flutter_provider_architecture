@@ -17,9 +17,7 @@ class CounterPage extends StatelessWidget {
 class _CounterPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _service = Provider.of<CounterService>(context, listen: false);
     return BaseView<CounterService>(
-      service: _service,
       builder: (context, service, child) => Scaffold(
         body: Center(
           child: Column(

@@ -1,6 +1,5 @@
 import 'package:clean_architecture/data_source/api.dart';
 import 'package:clean_architecture/service/comments_service.dart';
-import 'package:clean_architecture/service/counter_service.dart';
 import 'package:clean_architecture/service/login_service.dart';
 import 'package:clean_architecture/service/posts_service.dart';
 import 'package:flutter/material.dart';

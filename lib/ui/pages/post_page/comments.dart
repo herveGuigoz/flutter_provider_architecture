@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../../domain/entities/comment.dart';
 import '../../../service/comments_service.dart';
@@ -14,10 +13,8 @@ class Comments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _service = Provider.of<CommentsService>(context, listen: false);
     return BaseView<CommentsService>(
-      service: _service,
-      onServiceReady: (service) => _service.fetchComments(postId),
+      onServiceReady: (service) => service.fetchComments(postId),
       //onAfterBuild: (context, service) => service.fetchComments(postId),
       builder: (context, service, child) {
         if (service.state == CommentsServiceState.INITIAL) {

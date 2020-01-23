@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 
 import '../../base_view.dart';
 
-import '../../../service/common/locator.dart';
 import '../../../service/login_service.dart';
 import '../../../service/posts_service.dart';
 
@@ -31,17 +30,14 @@ class _HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<LoginService>(context, listen: false).user;
-    final _service = Provider.of<PostsService>(context, listen: false);
     return BaseView<PostsService>(
-      service: _service,
-      onServiceReady: (service) => _service.getPostsForUser(user.id),
+      onServiceReady: (service) => service.getPostsForUser(user.id),
       builder: (context, service, child) {
         if (service.state == PostsServiceState.INITIAL) {
           return Center(child: CircularProgressIndicator());
         }
         if (service.state == PostsServiceState.FAILURE) {
           ErrorHandler.showSnackBar(context, service.error);
-          // TODO: Error view
           return Container(
             child: Center(
               child: Text(ErrorHandler.errorMessage(service.error)),

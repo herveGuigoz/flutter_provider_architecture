@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../service/common/base_service.dart';
 
 class BaseView<T extends BaseService> extends StatefulWidget {
-  final ChangeNotifier service;
   final Widget Function(BuildContext context, T service, Widget child) builder;
   final Function(T service) onServiceReady;
   final Function(BuildContext context, T service) onAfterBuild;
@@ -12,7 +11,6 @@ class BaseView<T extends BaseService> extends StatefulWidget {
   final Function dispose;
 
   BaseView({
-    @required this.service,
     @required this.builder,
     this.onServiceReady,
     this.onAfterBuild,
@@ -21,18 +19,18 @@ class BaseView<T extends BaseService> extends StatefulWidget {
   });
 
   @override
-  _BaseViewState<T> createState() => _BaseViewState<T>(service);
+  _BaseViewState<T> createState() => _BaseViewState<T>();
 }
 
 class _BaseViewState<T extends BaseService> extends State<BaseView<T>> {
-  _BaseViewState(this.service);
-  final ChangeNotifier service;
+  ChangeNotifier _service;
 
   @override
   void initState() {
+    _service = Provider.of<T>(context, listen: false);
     if (widget.onServiceReady != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        widget.onServiceReady(service);
+        widget.onServiceReady(_service);
       });
     }
     super.initState();
@@ -56,10 +54,9 @@ class _BaseViewState<T extends BaseService> extends State<BaseView<T>> {
 
   @override
   Widget build(BuildContext context) {
-    print('BASE_VIEW ===> $service BUILDED');
     if (widget.onAfterBuild != null) {
       WidgetsBinding.instance
-          .addPostFrameCallback((_) => widget.onAfterBuild(context, service));
+          .addPostFrameCallback((_) => widget.onAfterBuild(context, _service));
     }
     return Consumer<T>(builder: widget.builder);
   }
